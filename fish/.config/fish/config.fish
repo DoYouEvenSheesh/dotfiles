@@ -8,3 +8,6 @@ if status is-interactive
 end
 
 fish_add_path /home/poseidon/.spicetify
+alias wifilist "nmcli device wifi list"
+alias Zagreus "nmcli device wifi connect Zagreus"
+alias BITS-STUDENT "nmcli device wifi connect BITS-STUDENT"
