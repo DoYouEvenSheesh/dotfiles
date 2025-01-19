@@ -9,5 +9,7 @@ end
 
 fish_add_path /home/poseidon/.spicetify
 alias wifilist "nmcli device wifi list"
-alias Zagreus "nmcli device wifi connect Zagreus"
+alias Zagreus "nmcli device wifi list && nmcli device wifi connect Zagreus"
 alias BITS-STUDENT "nmcli device wifi connect BITS-STUDENT"
+alias air "~/go/bin/air"
+alias vim "nvim"
