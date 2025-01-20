@@ -82,7 +82,8 @@ bindsym $mod+Return exec /home/poseidon/.cargo/bin/alacritty
 
 # kill focused window
 bindsym $mod+q kill
-
+# xkill window
+bindsym $mod+Shift+q exec xkill
 #start firefox
 bindsym $mod+w exec firefox
 
