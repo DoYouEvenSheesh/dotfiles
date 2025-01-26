@@ -87,6 +87,11 @@ bindsym $mod+Shift+q exec xkill
 #start firefox
 bindsym $mod+w exec firefox
 
+#screenshot
+bindsym Ctrl+Return exec maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Return exec maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Return exec maim --select | xclip -selection clipboard -t image/png
+
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
