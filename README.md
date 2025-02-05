@@ -1,11 +1,16 @@
 My dotfiles.
+
 Kinda a mess but works.
 
 # Drivers and Patches
 Fan: [mbpfan](https://github.com/linux-on-mac/mbpfan)
+
 Sound: [snd_hda_mackbookpro](https://github.com/davidjo/snd_hda_macbookpro)
-Camera: [bcwc_pcie](https://github.com/patjak/facetimehd/wiki)\
+
+Camera: [bcwc_pcie](https://github.com/patjak/facetimehd/wiki) 
+
 Palm Rejection: Store `local-overrides.quirks` file in the repo at `/etc/libinput/local-overrides.quirks`
+
 Keyboard Backlight: Compile `kbdlight.c` in `kbdlight` folder and move bin to `/usr/local/bin` and move `90-blacklight.rules` to `/etc/udev/rules.d`
 
 
