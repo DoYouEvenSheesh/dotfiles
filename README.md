@@ -1,12 +1,17 @@
-My dotfiles. \
-Kinda a mess but works. \ 
+My dotfiles.
+
+Kinda a mess but works.
 
 # Drivers and Patches
-Fan: [mbpfan](https://github.com/linux-on-mac/mbpfan)\
-Sound: [snd_hda_mackbookpro](https://github.com/davidjo/snd_hda_macbookpro)\
-Camera: [bcwc_pcie](https://github.com/patjak/facetimehd/wiki)\
-Palm Rejection: Store `local-overrides.quirks` file in the repo at `/etc/libinput/local-overrides.quirks`\
-Keyboard Backlight: Compile `kbdlight.c` in `kbdlight` folder and move bin to `/usr/local/bin` and move `90-blacklight.rules` to `/etc/udev/rules.d`\
+Fan: [mbpfan](https://github.com/linux-on-mac/mbpfan)
+
+Sound: [snd_hda_mackbookpro](https://github.com/davidjo/snd_hda_macbookpro)
+
+Camera: [bcwc_pcie](https://github.com/patjak/facetimehd/wiki) 
+
+Palm Rejection: Store `local-overrides.quirks` file in the repo at `/etc/libinput/local-overrides.quirks`
+
+Keyboard Backlight: Compile `kbdlight.c` in `kbdlight` folder and move bin to `/usr/local/bin` and move `90-blacklight.rules` to `/etc/udev/rules.d`
 
 
 ## Disable Autoboot
@@ -23,6 +28,7 @@ To re-enable auto boot again run:
 chattr -i /sys/firmware/efi/efivars/AutoBoot-7c436110-ab2a-4bbb-a880-fe41995c9f82
 rm /sys/firmware/efi/efivars/AutoBoot-7c436110-ab2a-4bbb-a880-fe41995c9f82
 ```
+
 
 
 
