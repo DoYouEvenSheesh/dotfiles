@@ -7,72 +7,72 @@
     "modules-center": ["custom/music"],
     "modules-right": ["pulseaudio", "network", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "sort-by-name": true,
-         "format": " {icon} ",
-         "format-icons": {
-             "default": "",
-         },
-     },
+	"disable-scroll": true,
+	"sort-by-name": true,
+	"format": " {icon} ",
+	"format-icons": {
+	    "default": "",
+	},
+    },
     "tray": {
-        "icon-size": 21,
-        "spacing": 10
+	"icon-size": 21,
+	"spacing": 10
     },
     "custom/music": {
-        "format": "  {}",
-        "escape": true,
-        "interval": 5,
-        "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
-        "on-click": "playerctl play-pause",
-        "max-length": 50
+	"format": "  {}",
+	"escape": true,
+	"interval": 5,
+	"tooltip": false,
+	"exec": "playerctl metadata --format='{{ title }}'",
+	"on-click": "playerctl play-pause",
+	"max-length": 50
     },
     "clock": {
-        "timezone": "Asia/Kolkata",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%d/%m/%Y}",
-        "format": "  {:%H:%M}"
+	"timezone": "Asia/Kolkata",
+	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"format-alt": " {:%d/%m/%Y}",
+	"format": "  {:%H:%M}"
     },
     "backlight": {
-        "device": "acpi_video0",
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+	"device": "acpi_video0",
+	"format": "{icon}",
+	"format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}",
-        "format-charging": "󰂄",
-        "format-plugged": "󰂄",
-        "format-alt": "{icon}",
-        "format-icons": ["󰂃", "󰁺",  "󰁻", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+	"states": {
+	    "warning": 30,
+	    "critical": 15
+	},
+	"format": "{icon}",
+	"format-charging": "󰂄",
+	"format-plugged": "󰂄",
+	"format-alt": "{icon}",
+	"format-icons": ["󰂃", "󰁺",  "󰁻", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon}  {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", "", " "]
-        },
-        "on-click": "pavucontrol"
+	// "scroll-step": 1, // %, can be a float
+	"format": "{icon}  {volume}%",
+	"format-muted": "",
+	"format-icons": {
+	    "default": ["", "", " "]
+	},
+	"on-click": "pavucontrol"
     },
     "custom/lock": {
-        "tooltip": false,
-        "on-click": "sh -c '(sleep 0.5s; hyprlock --grace 0)' & disown",
-        "format": "",
+	"tooltip": false,
+	"on-click": "sh -c '(sleep 0.5s; hyprlock --grace 0)' & disown",
+	"format": "",
     },
     "custom/power": {
-        "tooltip": false,
-        "on-click": "wlogout &",
-        "format": "󰐥"
+	"tooltip": false,
+	"on-click": "wlogout &",
+	"format": "󰐥"
     },
-     "network": {
-        "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-        "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-        "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
-   },
+    "network": {
+	"format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
+	"format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+	"format-linked": "{ifname} (No IP) ",
+	"format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
+	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+    },
 }
