@@ -11,7 +11,7 @@ Camera: [bcwc_pcie](https://github.com/patjak/facetimehd/wiki)
 
 Palm Rejection: Store `local-overrides.quirks` file in the repo at `/etc/libinput/local-overrides.quirks`
 
-Keyboard Backlight: See DoYouEvenSheesh/kbdlight
+Keyboard Backlight: See DoYouEvenSheesh/kbdlight and compile
 
 ## Disable Autoboot
 To disable auto boot from within Linux, ensure that `efivarfs` is mounted and run:
