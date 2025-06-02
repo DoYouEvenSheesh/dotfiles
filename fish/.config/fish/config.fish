@@ -9,3 +9,4 @@ starship init fish | source
 zoxide init --cmd cd fish | source
 alias ros "distrobox enter ros"
 alias icat "kitten icat"
+bass  source /usr/lib64/ros2-jazzy/setup.bash
