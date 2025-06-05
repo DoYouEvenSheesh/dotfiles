@@ -4,6 +4,7 @@ SETUVAR DB_CONNECTION_STRING:postgresql\x3a//postgres\x3asvyu9dmdpfg2qfn\x40db\x
 SETUVAR HYPRSHOT_DIR:/home/poseidon/Pictures/Screenshots
 SETUVAR QT_QPA_PLATFORM:wayland
 SETUVAR QT_QPA_PLATFORMTHEME:qt5ct
+SETUVAR XDG_CONFIG_HOME:/home/deer/\x2econfig/
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
