@@ -8,3 +8,4 @@ starship init fish | source
 fzf --fish | source
 zoxide init --cmd cd fish | source
 
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
