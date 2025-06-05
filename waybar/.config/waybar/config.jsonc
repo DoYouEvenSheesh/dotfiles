@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "layer": "top",  
     "position": "top", 
@@ -74,4 +75,9 @@
 	"format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
 	"tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
     },
+=======
+
+{
+
+>>>>>>> 8b24179bf84623d05c7a568fb3f7c6ec44b1d433
 }
