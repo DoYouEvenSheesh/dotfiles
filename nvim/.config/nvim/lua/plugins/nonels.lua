@@ -11,6 +11,8 @@ return {
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.goimports,
         null_ls.builtins.formatting.golines,
+        null_ls.builtins.diagnostics.ruff,
+        null_ls.builtins.formatting.black,
       }
     })
   end
