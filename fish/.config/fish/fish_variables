@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR AVANTE_GEMINI_API_KEY:AIzaSyCek5G\x2dGwYts0h2EeuP6yLYbttKZJTH7qI
+SETUVAR CHROME_EXECUTABLE:thorium\x2dbrowser
 SETUVAR DB_CONNECTION_STRING:postgresql\x3a//postgres\x3asvyu9dmdpfg2qfn\x40db\x2evwrvkaigeeggkxgrdhfu\x2esupabase\x2eco\x3a5432/postgres
 SETUVAR GEMINI_API_KEY:AIzaSyCek5G\x2dGwYts0h2EeuP6yLYbttKZJTH7qI
 SETUVAR HYPRSHOT_DIR:/home/poseidon/Pictures/Screenshots

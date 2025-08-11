@@ -82,6 +82,12 @@
       "type": "memory"
     },
     {
+            "key": "    󱛟 Storage   ",
+            "keyColor": "cyan",
+            "type": "disk"
+
+    },
+    {
       "key": "     Wifi         ",
       "keyColor": "green",
       "type": "wifi"
