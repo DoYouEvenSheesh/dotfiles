@@ -10,8 +10,7 @@ zoxide init --cmd cd fish | source
 
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to full|percentage"'
 alias lzd='lazydocker'
-set -x PYENV_ROOT $HOME/.pyenv
-if test -d $PYENV_ROOT/bin
-    set -x PATH $PYENV_ROOT/bin $PATH
-end
-status --is-interactive; and pyenv init - | source
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
