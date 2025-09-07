@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.signcolumn = "yes"
-
+vim.opt.textwidth = 80
 local map = vim.keymap.set
 vim.g.mapleader = " "
 map('n', '<leader>so', ':update<CR> :source<CR>')
@@ -44,14 +44,29 @@ map('n', '<leader>h', ":Pick help<CR>")
 map('n', '<leader>e', ":Oil<CR>")
 map('n', '<leader>lf', vim.lsp.buf.format)
 
+vim.lsp.config['vala'] = {
+  cmd = {'vala-language-server'},
+  filetypes = {'vala', 'genie'},  -- Add any other relevant filetypes if needed
+  root_markers = {'.git', 'meson.build', 'CMakeLists.txt'},
+  settings = {},
+}
+
 vim.lsp.enable(
 	{
-		"lua_ls", "svelte", "tinymist", "emmetls", "rust_analyzer", "clangd", "black", "pyright"
+		"lua_ls", "svelte", "tinymist", "emmetls", "rust_analyzer", "slint-lsp", "clangd", "gopls", "vala"
 	}
 )
 
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
+})
+
 require "nvim-treesitter".setup({
-	sync_installed = false,
+	sync_install = false,
 	auto_install = true,
 	indent = { enable = true },
 	highlight = {
@@ -65,7 +80,7 @@ require "nvim-treesitter".setup({
 			end
 		end,
 
-	}
+	},
 
 })
 
