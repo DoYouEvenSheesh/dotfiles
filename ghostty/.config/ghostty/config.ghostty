@@ -1,0 +1,4 @@
+theme = Vague
+window-decoration = false
+shell-integration-features = ssh-env,ssh-terminfo
+# custom-shader=~/.config/ghostty/shaders/cursor_blaze.glsl

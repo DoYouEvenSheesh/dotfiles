@@ -15,47 +15,51 @@ vim.opt.signcolumn = "yes"
 vim.opt.textwidth = 80
 local map = vim.keymap.set
 vim.g.mapleader = " "
-map('n', '<leader>so', ':update<CR> :source<CR>')
-map('n', '<leader>w', ':write<CR>')
-map('n', '<leader>q', ':quit<CR>')
-map('n', '<leader>v', ':e $MYVIMRC<CR>')
-map({ 'n', 'v' }, '<leader>y', '"+y')
-map({ 'n', 'v' }, '<leader>d', '"+d')
-map({ 'n', 'v' }, '<leader>c', '1z=')
+map("n", "<leader>so", ":update<CR> :source<CR>")
+map("n", "<leader>w", ":write<CR>")
+map("n", "<leader>q", ":quit<CR>")
+map("n", "<leader>v", ":e $MYVIMRC<CR>")
+map({ "n", "v" }, "<leader>y", '"+y')
+map({ "n", "v" }, "<leader>d", '"+d')
+map({ "n", "v" }, "<leader>c", "1z=")
 
 vim.pack.add({
-	{ src = "https://github.com/catppuccin/nvim" },
+	{ src = "https://github.com/vague-theme/vague.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/echasnovski/mini.pick" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
-	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/Saghen/blink.cmp", version = "1.6.0" },
+	{ src = "https://github.com/saghen/blink.cmp" },
+	{ src = "https://github.com/saghen/blink.lib" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
+	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
-require "mason".setup()
-require "mini.pick".setup()
-require "oil".setup()
-require "blink.cmp".setup()
+require("mason").setup()
+require("mini.pick").setup()
+require("oil").setup()
+local cmp = require("blink.cmp")
+cmp.build():wait(60000)
+cmp.setup()
 
-map('n', '<leader>f', ":Pick files<CR>")
-map('n', '<leader>h', ":Pick help<CR>")
-map('n', '<leader>e', ":Oil<CR>")
-map('n', '<leader>lf', vim.lsp.buf.format)
+map("n", "<leader>f", ":Pick files<CR>")
+map("n", "<leader>h", ":Pick help<CR>")
+map("n", "<leader>e", ":Oil<CR>")
+map("n", "<leader>lf", vim.lsp.buf.format)
 
-vim.lsp.config['vala'] = {
-  cmd = {'vala-language-server'},
-  filetypes = {'vala', 'genie'},  -- Add any other relevant filetypes if needed
-  root_markers = {'.git', 'meson.build', 'CMakeLists.txt'},
-  settings = {},
-}
-
-vim.lsp.enable(
-	{
-		"lua_ls", "svelte", "tinymist", "emmetls", "rust_analyzer", "slint-lsp", "clangd", "gopls", "vala"
-	}
-)
+vim.lsp.enable({
+	"lua_ls",
+	"svelte",
+	"tinymist",
+	"rust_analyzer",
+	"clangd",
+	"gopls",
+	"lua-language-server",
+	"pyright",
+	"ocamllsp",
+})
 
 vim.diagnostic.config({
 	virtual_text = true,
@@ -65,24 +69,49 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
-require "nvim-treesitter".setup({
-	sync_install = false,
-	auto_install = true,
-	indent = { enable = true },
-	highlight = {
-		enabled = true,
-
-		disable = function(lang, buf)
-			local max_filesize = 100 * 1024
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-			if ok and stats and stats.size > max_filesize then
-				return true
-			end
-		end,
-
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		python = { "isort", "black" },
+		go = { "goimports", "gofumpt" },
+		ocaml = { "ocamlformat" },
 	},
 
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback",
+	},
 })
 
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"svelte",
+		"markdown",
+		"lua",
+		"rust",
+		"typst",
+		"typescript",
+		"javascript",
+		"c",
+		"cpp",
+		"go",
+		"zig",
+		"python",
+	},
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local opts = { buffer = ev.buf }
+
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	end,
+})
+
+vim.cmd.colorscheme("vague")
 vim.cmd(":hi statusline guibg=NONE guifg=NONE")
